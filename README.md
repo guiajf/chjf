@@ -132,4 +132,4 @@ mapa.save("mapa_com_poligono.html")
 mapa
 ```
 
-[](centro_historico.png)
+<iframke src="centro_historico.png" height="500" width="500"></iframe>
