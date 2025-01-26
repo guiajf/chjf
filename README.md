@@ -15,6 +15,7 @@ A partir das coordenadas UTM do polígono fornecidas, vamos criar um mapa
 interativo do Centro Histórico, utilizando as bibliotecas do Python.
 
 <br>
+
 **Importamos as bibliotecas necessárias:**
 
 ``` python
