@@ -14,6 +14,7 @@ ao decreto, consta um memorial descritivo do polígono de delimitação da
 A partir das coordenadas UTM do polígono fornecidas, vamos criar um mapa
 interativo do Centro Histórico, utilizando as bibliotecas do Python.
 
+<br>
 **Importamos as bibliotecas necessárias:**
 
 ``` python
