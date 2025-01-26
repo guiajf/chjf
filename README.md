@@ -24,6 +24,7 @@ from folium import plugins
 from pyproj import Proj, Transformer
 from shapely.geometry import Polygon
 ```
+<br>
 
 **Definimos a área de interesse:**
 
@@ -52,6 +53,8 @@ vertices_utm = [
 ]
 ```
 
+<br>
+
 **Definimos o Sistema de Referência Espacial**
 
 Convertemos as coordenadas UTM fornecidas do Sistema SIRGAS 2000 para
@@ -66,6 +69,8 @@ transformer = Transformer.from_proj(proj_utm, 'epsg:4326')
 vertices_wgs84 = [transformer.transform(easting, northing) for easting, northing in vertices_utm]
 ```
 
+<br>
+
 *Exibimos as coordenadas obtidas*
 
 ``` python
@@ -74,6 +79,8 @@ print(vertices_wgs84)
 
 ::: {.output .stream .stdout}
     [(-21.762281043001835, -43.34016652775217), (-21.753233459476547, -43.351362572075494), (-21.753639557293926, -43.352186110828214), (-21.75221027520308, -43.35293251378737), (-21.752414458261512, -43.353238788656014), (-21.753757529707904, -43.35238575673133), (-21.754091028762748, -43.35310493520417), (-21.75773825072305, -43.352207947099004), (-21.757812692768333, -43.35256952148563), (-21.75756100908489, -43.353168600600966), (-21.758277067755575, -43.354157612890276), (-21.75783041668798, -43.35219376769888), (-21.760788237237197, -43.35139206518308), (-21.760940240650374, -43.35206813839776), (-21.761759241939266, -43.35184580552671), (-21.762217519769386, -43.35369933505048), (-21.76231053597393, -43.35367211067517), (-21.76171386749516, -43.351158388857264), (-21.764545464282058, -43.350441727160124)]
+
+<br>
 
 **Definimos os parâmetros do polígono**
 
@@ -87,6 +94,8 @@ polygon = Polygon(location)
 # Obter os limites do polígono (bounding box)
 bounds = polygon.bounds  # (min_lon, min_lat, max_lon, max_lat)
 ```
+
+<br>
 
 **Definimos os parâmetros do mapa**
 
@@ -113,6 +122,8 @@ folium.plugins.Fullscreen(
 # Ajustar o mapa aos limites do polígono
 mapa.fit_bounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]])
 ```
+
+<br>
 
 **Visualizamos o mapa**
 
