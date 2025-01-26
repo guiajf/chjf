@@ -131,4 +131,4 @@ mapa.fit_bounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]])
 mapa.save("mapa_com_poligono.html")
 mapa
 ```
-
+![](centro_historico.png)
