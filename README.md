@@ -1,32 +1,6 @@
----
-jupyter:
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
-  language_info:
-    codemirror_mode:
-      name: ipython
-      version: 3
-    file_extension: .py
-    mimetype: text/x-python
-    name: python
-    nbconvert_exporter: python
-    pygments_lexer: ipython3
-    version: 3.12.3
-  nbformat: 4
-  nbformat_minor: 5
----
-
-::: {#6867dd4a-79c0-41cd-9626-99c87a2a0ff2 .cell .markdown}
 ## Centro Histórico de Juiz de Fora
-:::
-
-::: {#965a5b4f-ef76-4ee5-a5d9-ada182f43f31 .cell .markdown}
 ### Delimitação espacial
-:::
 
-::: {#e40eb3a0-bf22-4f38-9634-f20695670a37 .cell .markdown}
 O **Jornal Tribuna de Minas**
 [noticiou](https://tribunademinas.com.br/noticias/cidade/24-01-2025/centro-historico-jf.html)
 a publicação de um
@@ -36,35 +10,21 @@ Histórico da cidade.
 [Anexo](https://www.pjf.mg.gov.br/e_atos/anexos/anexo_centro_175327.pdf)
 ao decreto, consta um memorial descritivo do polígono de delimitação da
 área.
-:::
 
-::: {#71300a8c-74d1-4c9f-a8a9-2e0c5bd7e306 .cell .markdown}
 A partir das coordenadas UTM do polígono fornecidas, vamos criar um mapa
 interativo do Centro Histórico, utilizando as bibliotecas do Python.
-:::
-
-::: {#bd401d9c-6136-438b-bc7f-f82ed50eaefe .cell .markdown}
-`<br>`{=html}
 
 **Importamos as bibliotecas necessárias:**
-:::
 
-::: {#d73e72f0-216b-4951-ab1f-6dc621f7bf7d .cell .code execution_count="7"}
 ``` python
 import folium
 from folium import plugins
 from pyproj import Proj, Transformer
 from shapely.geometry import Polygon
 ```
-:::
-
-::: {#68e1d209-e4e1-4dc9-a737-a7e716bf5d54 .cell .markdown}
-`<br>`{=html}
 
 **Definimos a área de interesse:**
-:::
 
-::: {#96ff0417-74a2-4b08-b200-c0e18eefd92c .cell .code execution_count="8"}
 ``` python
 # Coordenadas UTM do polígono
 vertices_utm = [
@@ -89,20 +49,12 @@ vertices_utm = [
     (670565.63917, 7592323.5994)
 ]
 ```
-:::
-
-::: {#3ec2b501-9fda-48f0-ac39-c6f4dfadd876 .cell .markdown}
-`<br>`{=html}
 
 **Definimos o Sistema de Referência Espacial**
-:::
 
-::: {#7717753d-fb5d-4312-bc36-4cfcbe00c051 .cell .markdown}
 Convertemos as coordenadas UTM fornecidas do Sistema SIRGAS 2000 para
 EPSG4326, que é o padrão adotado pelo *folium*.
-:::
 
-::: {#e48e1f25-3ad2-4d5c-88e9-eebfe54e5916 .cell .code execution_count="9"}
 ``` python
 # Inicializar transformador UTM para WGS84
 proj_utm = Proj(proj='utm', zone=23, south=True, ellps='GRS80', datum='WGS84')
@@ -111,26 +63,15 @@ transformer = Transformer.from_proj(proj_utm, 'epsg:4326')
 # Converter coordenadas UTM para latitude e longitude
 vertices_wgs84 = [transformer.transform(easting, northing) for easting, northing in vertices_utm]
 ```
-:::
-
-::: {#a5741913-9a09-4fd9-bd27-99e634db0a7e .cell .markdown}
-`<br>`{=html}
 
 *Exibimos as coordenadas obtidas*
-:::
 
-::: {#cb7c1540-6c78-4871-b6cd-0c94fbdb87e5 .cell .code execution_count="10"}
 ``` python
 print(vertices_wgs84)
 ```
 
 ::: {.output .stream .stdout}
     [(-21.762281043001835, -43.34016652775217), (-21.753233459476547, -43.351362572075494), (-21.753639557293926, -43.352186110828214), (-21.75221027520308, -43.35293251378737), (-21.752414458261512, -43.353238788656014), (-21.753757529707904, -43.35238575673133), (-21.754091028762748, -43.35310493520417), (-21.75773825072305, -43.352207947099004), (-21.757812692768333, -43.35256952148563), (-21.75756100908489, -43.353168600600966), (-21.758277067755575, -43.354157612890276), (-21.75783041668798, -43.35219376769888), (-21.760788237237197, -43.35139206518308), (-21.760940240650374, -43.35206813839776), (-21.761759241939266, -43.35184580552671), (-21.762217519769386, -43.35369933505048), (-21.76231053597393, -43.35367211067517), (-21.76171386749516, -43.351158388857264), (-21.764545464282058, -43.350441727160124)]
-:::
-:::
-
-::: {#c576c6be-bc52-4603-a6a2-33432c34d8e7 .cell .markdown}
-`<br>`{=html}
 
 **Definimos os parâmetros do polígono**
 :::
