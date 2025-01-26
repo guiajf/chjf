@@ -133,3 +133,7 @@ mapa
 ```
 
 ![](centro_historico.png)
+
+<br>
+
+Faça o download do arquivo "mapa_com_poligono.html", para visualizar o mapa interativo no navegador. 
