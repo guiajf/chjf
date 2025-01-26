@@ -74,9 +74,7 @@ print(vertices_wgs84)
     [(-21.762281043001835, -43.34016652775217), (-21.753233459476547, -43.351362572075494), (-21.753639557293926, -43.352186110828214), (-21.75221027520308, -43.35293251378737), (-21.752414458261512, -43.353238788656014), (-21.753757529707904, -43.35238575673133), (-21.754091028762748, -43.35310493520417), (-21.75773825072305, -43.352207947099004), (-21.757812692768333, -43.35256952148563), (-21.75756100908489, -43.353168600600966), (-21.758277067755575, -43.354157612890276), (-21.75783041668798, -43.35219376769888), (-21.760788237237197, -43.35139206518308), (-21.760940240650374, -43.35206813839776), (-21.761759241939266, -43.35184580552671), (-21.762217519769386, -43.35369933505048), (-21.76231053597393, -43.35367211067517), (-21.76171386749516, -43.351158388857264), (-21.764545464282058, -43.350441727160124)]
 
 **Definimos os parâmetros do polígono**
-:::
 
-::: {#e3b6b741-fd23-4791-aac0-e219d0f67b3a .cell .code execution_count="11"}
 ``` python
 ## Inverter para a ordem correta (latitude, longitude)
 location = [(lat, lon) for lon, lat in vertices_wgs84]
@@ -87,15 +85,9 @@ polygon = Polygon(location)
 # Obter os limites do polígono (bounding box)
 bounds = polygon.bounds  # (min_lon, min_lat, max_lon, max_lat)
 ```
-:::
-
-::: {#0664eb72-97c1-4e05-a63c-e49df3877c67 .cell .markdown}
-`<br>`{=html}
 
 **Definimos os parâmetros do mapa**
-:::
 
-::: {#341b6e68-aeb0-4b5b-be19-3a800cb1b997 .cell .code execution_count="12"}
 ``` python
 # Criar mapa centralizado nos limites do polígono
 mapa = folium.Map()
@@ -119,15 +111,9 @@ folium.plugins.Fullscreen(
 # Ajustar o mapa aos limites do polígono
 mapa.fit_bounds([[bounds[1], bounds[0]], [bounds[3], bounds[2]]])
 ```
-:::
-
-::: {#bad41365-3944-4bc5-96c8-7efc8a52591a .cell .markdown}
-`<br>`{=html}
 
 **Visualizamos o mapa**
-:::
 
-::: {#3026d458-eb34-4e69-93d8-29ee880362d3 .cell .code execution_count="13"}
 ``` python
 # Salvar e exibir mapa
 mapa.save("mapa_com_poligono.html")
@@ -231,10 +217,7 @@ mapa
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
 ```
-:::
-:::
 
-::: {#e8412edf-62dd-4863-8f65-7f993a11bd51 .cell .code}
 ``` python
 ```
-:::
+
