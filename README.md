@@ -132,4 +132,4 @@ mapa.save("mapa_com_poligono.html")
 mapa
 ```
 
-![](mapa_com_poligono.html)
+![](centro_historico.png)
