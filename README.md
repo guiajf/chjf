@@ -16,7 +16,7 @@ interativo do Centro Histórico, utilizando as bibliotecas do Python.
 
 <br>
 
-**Importamos as bibliotecas necessárias:**
+**Importamos as bibliotecas necessárias**
 
 ``` python
 import folium
@@ -26,7 +26,7 @@ from shapely.geometry import Polygon
 ```
 <br>
 
-**Definimos a área de interesse:**
+**Definimos a área de interesse**
 
 ``` python
 # Coordenadas UTM do polígono
